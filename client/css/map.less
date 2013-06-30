@@ -1,0 +1,95 @@
+@import "variables.less";
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: #333;
+	color: #FFF;
+	margin: 0;
+	padding: @tile-size / 2;
+	font-family: monospace;
+}
+
+.map {
+	position: relative;
+	display: inline-block;
+}
+
+.tile {
+	width: @tile-size;
+	height: @tile-size;
+	text-align: center;
+	line-height: @tile-size;
+	color: #FFF;
+	text-shadow: 0 2px 0 rgba(0, 0, 0, .4);
+	font-size: @tile-size / 2;
+	position: absolute;
+	background: transparent no-repeat 0 0;
+}
+
+
+
+.tile-image (@name, @url, @x: 1, @y: 1, @width: 1, @height: 1, @left: 0, @top: 0) {
+	(~".tile-@{name}") {
+		width: @tile-size * @width;
+		height: @tile-size * @height;
+		background-image: url(@url);
+		background-size: (@tile-size * 16) (@tile-size * 16);
+		background-position: (-@tile-size * (@y - 1)) (-@tile-size * (@x - 1));
+		margin-top: @tile-size * @top;
+		margin-left: @tile-size * @left;
+	}
+}
+
+
+.tile-image(grass, "../../tilea2.png", 1, 1);
+.tile-image(tall-grass, "../../tilea2.png", 4, 3);
+.tile-image(wall, "../../tilea2.png", 4, 7);
+.tile-image(door, "../../tilea2.png", 4, 8);
+.tile-image(shrub, "../../tileb.png", 5, 1);
+.tile-image(tree, "../../tileb.png", 7, 6, 1, 2, 0, -1);
+.tile-image(tall-tree, "../../tileb.png", 5, 7, 2, 2, 0, -1);
+
+
+.collision-solid,
+.collision-warp {
+	&:after {
+		content: ' ';
+		display: block;
+		position: absolute;
+		top: 25%;
+		left: 25%;
+		width: 50%;
+		height: 50%;
+	}
+}
+
+.collision-solid:after {
+	background: rgba(0, 0, 0, .4);
+}
+.collision-warp:after {
+	@border-size: 3px;
+
+	border-radius: 100%;
+	border: @border-size solid #0FF;
+	margin: -@border-size;
+	box-shadow: inset 0 0 (@border-size * 5) #6FF;
+}
+.collision-random:after {
+	content: '?';
+}
+
+form {
+	position: absolute;
+	top: @tile-size / 4;
+	right: @tile-size / 4;
+	background: #FFF;
+	color: #444;
+	border-radius: 10px;
+	padding: 10px;
+	fieldset {
+		border: 1px solid #DDD;
+	}
+}

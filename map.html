@@ -1,0 +1,62 @@
+<head>
+	<title>Map</title>
+</head>
+
+<body>
+	{{> map}}
+	{{> controls}}
+</body>
+
+
+<template name="map">
+	<h1>{{map.name}}</h1>
+	<div class="map width-{{map.width}} height-{{map.height}}">
+		{{#each map.terrain}}
+			{{> row}}
+		{{/each}}
+
+		{{> players}}
+
+		{{#each map.props}}
+			{{> row}}
+		{{/each}}
+	</div>
+</template>
+
+<template name="players">
+	<div class="players"></div>
+</template>
+
+<template name="row">
+	{{#each this}}
+		{{> tiles}}
+	{{/each}}
+</template>
+
+<template name="tiles">
+	{{#each this}}
+		{{> tile}}
+	{{/each}}
+</template>
+
+<template name="tile">
+	{{#if exists}}
+		<div class="tile left-{{x}} top-{{y}} {{tileClass}} {{collisionClass}}"></div>
+	{{/if}}
+</template>
+
+
+
+<template name="controls">
+	<form>
+		<fieldset>
+			<legend>Map Controls</legend>
+			<label>
+				<input type="checkbox" name="showTiles" {{checkedIfShowTiles}}> Tiles
+			</label>
+			<label>
+				<input type="checkbox" name="showCollision" {{checkedIfShowCollision}}> Collision
+			</label>
+		</fieldset>
+	</form>
+</template>

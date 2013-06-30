@@ -1,0 +1,23 @@
+@import "variables.less";
+
+.grid-classes (@index) when (@index > 0) {
+	.grid-classes(@index - 1);
+	(~".width-@{index}") {
+		width: @index * @tile-size;
+	}
+	(~".height-@{index}") {
+		height: @index * @tile-size;
+	}
+	(~".left-@{index}") {
+		left: @index * @tile-size;
+	}
+	(~".top-@{index}") {
+		top: @index * @tile-size;
+	}
+	(~".z-@{index}") {
+		z-index: @index;
+	}
+}
+
+// add grid classes
+.grid-classes(99);

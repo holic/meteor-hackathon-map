@@ -1,0 +1,9 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+    },
+    "packages": {
+    }
+  }
+}
