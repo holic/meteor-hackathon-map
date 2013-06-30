@@ -35,7 +35,7 @@ body {
 	(~".tile-@{name}") {
 		width: @tile-size * @width;
 		height: @tile-size * @height;
-		background-image: url(@url);
+		background-image: url(~"../../@{url}");
 		background-size: (@tile-size * 16) (@tile-size * 16);
 		background-position: (-@tile-size * (@y - 1)) (-@tile-size * (@x - 1));
 		margin-top: @tile-size * @top;
@@ -44,13 +44,13 @@ body {
 }
 
 
-.tile-image(grass, "../../tilea2.png", 1, 1);
-.tile-image(tall-grass, "../../tilea2.png", 4, 3);
-.tile-image(wall, "../../tilea2.png", 4, 7);
-.tile-image(door, "../../tilea2.png", 4, 8);
-.tile-image(shrub, "../../tileb.png", 5, 1);
-.tile-image(tree, "../../tileb.png", 7, 6, 1, 2, 0, -1);
-.tile-image(tall-tree, "../../tileb.png", 5, 7, 2, 2, 0, -1);
+.tile-image(grass, "tilea2.png", 1, 1);
+.tile-image(tall-grass, "tilea2.png", 4, 3);
+.tile-image(wall, "tilea2.png", 4, 7);
+.tile-image(door, "tilea2.png", 4, 8);
+.tile-image(shrub, "tileb.png", 5, 1);
+.tile-image(tree, "tileb.png", 7, 6, 1, 2, 0, -1);
+.tile-image(tall-tree, "tileb.png", 5, 7, 2, 2, 0, -1);
 
 
 .collision-solid,
