@@ -68,13 +68,28 @@ class MapTile
 	constructor: (@map, @x, @y, @tile) ->
 
 	tileClasses =
-		"w": "wall"
-		"g": "grass"
-		"G": "tall-grass"
-		"d": "door"
-		"s": "shrub"
-		"t": "tree"
-		"T": "tall-tree"
+		"a": "grass"
+		"W": "water"
+		"A": "tall-grass"
+		"T": "tree"
+		"H": "house"
+		"C": "cave"
+		"s": "bench"
+		"q": "stone"
+		"p": "avatar"
+		"É": "path-top-left"
+		"»": "path-top-right"
+		"¼": "path-bottom-right"
+		"È": "path-bottom-left"
+		"Ä": "path-bottom"
+		"Í": "path-top"
+		"º": "path-left"
+		"³": "path-right"
+		"Ù": "path-inset-top-left"
+		"À": "path-inset-top-right"
+		"¿": "path-inset-bottom-left"
+		"Ú": "path-inset-bottom-right"
+
 
 	collisionClasses =
 		"#": "solid"
@@ -95,28 +110,155 @@ class MapTile
 map = new Map "arena"
 
 map.addTerrainMap """
-	 wwwww
-	wwgGGww
-	dgggGgw
-	wgggggd
-	wwGggww
-	 wwwww
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 """
+
+map.addTerrainMap """
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+TT                                C   q    TT
+TT                              q          TT
+TT       q            s                    TT
+TT                               É»        TT
+TT     q                         º³        TT
+TT       q     H                 º³        TT
+TT                               º³        TT
+TT             É»                º³        TT
+TT             º³                º³        TT
+TT             È¼                º³        TT
+TT                           ÉÍÍÍÙ³        TT
+TT   ÉÍÍÍÍÍÍÍ»               ºÚÄÄÄ¼        TT
+TT ÉÍÙÚÄÄÄÄÄ¿³               º³            TT
+TT ÈÄÄ¼     ºÀÍÍ»            º³            TT
+TT      WWW ÈÄÄ¿³            º³            TT
+TT     WWWWW   ºÀ»           º³            TT
+TT     WWWWWWW È¿ÀÍ»         º³            TT
+TT q    WWWWWW  ÈÄ¿³         º³            TT
+TT      WWWWWWW   º³      ÉÍÍÙ³            TT
+TT     WWWWWWWWW  ºÀ»     ºÚÄÄ¼            TT
+TT    WWWWWWWWWW  È¿³     º³               TT
+TT    WWWWWWWWWWW  ºÀÍÍÍÍÍÙ³      s        TT
+TT   WWWWT WWWWWW  ÈÄÄÄÄÄÄÄ¼               TT
+TT   WWWW  WWWWWW                     q    TT
+TT    WWWWWWWWWWW             s            TT
+TT    WWWWWWWWWWW                          TT
+TT     WWWWWWWWW                q          TT
+TT     WWWW                                TT
+TT                                         TT
+TT                                         TT
+TT                                         TT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+"""
+
 map.addPropsMap """
-	
-	  ss
-	  s
-	 T
-	   t
+                                             
+                                             
+                                             
+   A                                         
+                           A                 
+                                             
+                                     AAA     
+    A                                AAAA    
+                       A              AAA    
+                                       AA    
+    A                                        
+                        A           AA       
+                       AAA          AAAA     
+                      AAAAA         AAAA     
+                    AAAAAAA          AA      
+                     AAAAAA                  
+                     AAAAA                   
+                      AAA                    
+                       AA                    
+                        A            A       
+                                             
+                                             
+                                             
+                                    A        
+                                   A         
+                                             
+     A           A                           
+     A                  A                    
+                                             
+                          A          A       
+     A                                       
+                                             
+                                             
+                                             
+                                             
 """
 # collision
 map.addPropsMap """
-	#######
-	## rr##
-	O   r #
-	#     O
-	##r  ##
-	#######
+#############################################
+#############################################
+##                               #O#  #    ##
+## ?                            #          ##
+##       #                 ?               ##
+##                                         ##
+##     #     #####                   ???   ##
+##  ?    #   ##O##                   ????  ##
+##                     ?              ???  ##
+##                                     ??  ##
+##  ?                                      ##
+##                      ?           ??     ##
+##                     ???          ????   ##
+##                    ?????         ????   ##
+##                  ???????          ??    ##
+##                   ??????                ##
+##                   ?????                 ##
+##                    ???                  ##
+##                     ??                  ##
+## #                    ?            ?     ##
+##                                         ##
+##                                         ##
+##                                         ##
+##                                  ?      ##
+##       #                         ?       ##
+##                                    #    ##
+##   ?           ?                         ##
+##   ?                  ?                  ##
+##                              #          ##
+##                        ?          ?     ##
+##   ?                                     ##
+##                                         ##
+##                                         ##
+#############################################
+#############################################
 """
 
 Template.map.map = -> map

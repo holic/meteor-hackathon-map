@@ -36,21 +36,38 @@ body {
 		width: @tile-size * @width;
 		height: @tile-size * @height;
 		background-image: url(~"../../@{url}");
-		background-size: (@tile-size * 16) (@tile-size * 16);
-		background-position: (-@tile-size * (@y - 1)) (-@tile-size * (@x - 1));
+		//background-size: (@tile-size * 16) (@tile-size * 16);
+		background-position: (-@tile-size * (@x - 1)) (-@tile-size * (@y - 1));
 		margin-top: @tile-size * @top;
 		margin-left: @tile-size * @left;
 	}
 }
 
 
-.tile-image(grass, "tilea2.png", 1, 1);
-.tile-image(tall-grass, "tilea2.png", 4, 3);
-.tile-image(wall, "tilea2.png", 4, 7);
-.tile-image(door, "tilea2.png", 4, 8);
-.tile-image(shrub, "tileb.png", 5, 1);
-.tile-image(tree, "tileb.png", 7, 6, 1, 2, 0, -1);
-.tile-image(tall-tree, "tileb.png", 5, 7, 2, 2, 0, -1);
+.tile-image(grass, "forest.png", 6, 6);
+.tile-image(water, "forest.png", 7, 6);
+.tile-image(tall-grass, "forest.png", 1, 6, 1, 1, 3, 0);
+.tile-image(tree, "forest.png", 1, 4, 1, 2, 0, -1);
+.tile-image(house, "forest.png", 6, 1, 5, 4, -2, -4);
+.tile-image(cave, "forest.png", 2, 4, 3, 2, -1, -1);
+.tile-image(bench, "forest.png", 9, 6, 2, 1, -1, 0);
+.tile-image(stone, "forest.png", 2, 6);
+.tile-image(avatar, "forest.png", 5, 5, 1, 2, 0, -1);
+.tile-image(path-top-left, "forest.png", 1, 1);
+.tile-image(path-top-right, "forest.png", 3, 1);
+.tile-image(path-bottom-right, "forest.png", 3, 3);
+.tile-image(path-bottom-left, "forest.png", 1, 3);
+.tile-image(path-bottom, "forest.png", 2, 3);
+.tile-image(path-top, "forest.png", 2, 1);
+.tile-image(path-left, "forest.png", 1, 2);
+.tile-image(path-right, "forest.png", 3, 2);
+.tile-image(path-inset-top-left, "forest.png", 4, 1);
+.tile-image(path-inset-top-right, "forest.png", 5, 1);
+.tile-image(path-inset-bottom-left, "forest.png", 4, 2);
+.tile-image(path-inset-bottom-right, "forest.png", 5, 2);
+
+
+
 
 
 .collision-solid,
